@@ -1,0 +1,41 @@
+---
+title: "My First Leaflet Map"
+author: "M. Gorka"
+date: "21/04/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Introduction
+
+This project is part of the coursera course entitled Developping Data Products. It corresponds to the week 2 assignement. 
+The goal of this work is to creat a webpage that countain a leaflet map.
+
+---
+
+### Assignement
+#### Loading librairies
+
+```{r}
+library(leaflet)
+```
+
+#### Creating a leaflet map
+
+In this assignement we are going to use two locations in Lausanne, Switzerland.
+
+```{r}
+locations <- data.frame( lat = c(46.520452,46.531719),
+                         lng = c(6.572277,6.646033),
+                         labels = c("Forensic Science School", "La Salle Training Center"))
+
+m <- leaflet(locations) %>% addTiles %>% addMarkers(label = ~labels)
+m
+```
+
+
